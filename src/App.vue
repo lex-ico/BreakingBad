@@ -7,9 +7,18 @@
 
 <template>
   <div class="wrapper">
-    <h1>App.vue</h1>
+
+    <header>
+    Navegador 
+    </header>
+
+    <main>
+    <RouterView/>
+    </main>
   </div>
 </template>
+
+
 
 <style scoped>
   .wrapper{

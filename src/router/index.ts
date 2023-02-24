@@ -2,6 +2,7 @@ import AboutPage from '@/shared/pages/AboutPage.vue';
 import HomePage from '@/shared/pages/HomePage.vue';
 import{ createRouter, createWebHistory } from 'vue-router';
 
+// creamos el router
 const router = createRouter({
     history: createWebHistory( import.meta.env.BASE_URL ),
 
