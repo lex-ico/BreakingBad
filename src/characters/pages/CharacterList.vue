@@ -1,10 +1,17 @@
 <script setup lang="ts">
+import CardList from '@/characters/components/CardList.vue'
+
+
+const props = defineProps<{title: string, visible:true}>()
 
 </script>
 
 
 <template>
-    <h1>Character List</h1>
+    <h2>{{props.title}}</h2>
+    
+    <CardList />
+
 </template>
 
 

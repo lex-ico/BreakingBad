@@ -1,5 +1,7 @@
 <script setup lang="ts">
-
+import { RouterView } from 'vue-router';
+import { routerLinks } from '@/router/link-routes';
+import NavBar from '@/shared/components/NavBar.vue';
 </script>
 
 
@@ -9,7 +11,8 @@
   <div class="wrapper">
 
     <header>
-    Navegador 
+      <NavBar title="RickAndMorty"
+       :links="routerLinks" />
     </header>
 
     <main>
@@ -26,5 +29,4 @@
     display: flex;
     flex-direction: column;
   }
-
 </style>
