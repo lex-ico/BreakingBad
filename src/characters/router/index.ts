@@ -8,31 +8,33 @@ import CharacterId from "../pages/CharacterId.vue";
 import CharacterList from "../pages/CharacterList.vue";
 import CharacterSearch from "../pages/CharacterSearch.vue";
 
+const ROUTE_NAME = 'characters';
 
 
 // creamos rutas hijas
 export const characterRoute: RouteRecordRaw = {
-    path: '/characters',
+    path: `/${ROUTE_NAME}`,
 
     redirect: 'characters/list',
 
     component: CharacterLayout,
 
+    //los dos puntos nos indican que es un elemento dinamico
     children: [
         { 
-            path: 'by/id', 
+            path: 'by/:id', 
             name: 'character-id', 
             props: { title: 'Por Id', visible: false},
             component: CharacterId,
         },
         {
-            path: 'list', 
+            path: `/${ROUTE_NAME}/list`, //es lo mismo que poner solo list, pero al entrar en otra pagina no podremos volver a list y que se renderice
             name: 'character-list', 
             props: { title: 'Lista', visible: true},
             component: CharacterList,
         },
         { 
-            path: 'search', 
+            path: `/${ROUTE_NAME}/search`, 
             name: 'character-search', 
             props: { title: 'Búsqueda', visible: true},
             component: CharacterSearch,
