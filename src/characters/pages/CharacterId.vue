@@ -32,11 +32,6 @@
         ['character', id], 
         () => getCharacter(id),
 
-        {
-            cacheTime: 1000 * 120,
-            refetchOnReconnect: 'always'
-        }
-
     );
 
 
@@ -59,7 +54,7 @@
             <ul>
             <li>Estado: {{ character.status }}</li>
             <li>Especie: {{ character.species}}</li>
-            <li>Tipo: {{ character.type }}</li>
+            <li>Tipo: {{ character.type }} </li>
             <li>Genero: {{ character.gender }}</li>
             <li>Locaclización: {{ character.location.name }}</li>
             <li>Episodios: 
