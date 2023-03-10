@@ -3,9 +3,10 @@
     // router es para hacer vinculos 
     // el route es para conseguir datos
     import { useRoute } from 'vue-router';
-    import rickAndMorty from '@/api/rickAndMorty';
-    import type { Result } from '@/characters/interfaces/characters';
-    import { useQuery } from '@tanstack/vue-query';
+    // import rickAndMorty from '@/api/rickAndMorty';
+    // import type { Result } from '@/characters/interfaces/characters';
+    // import { useQuery } from '@tanstack/vue-query';
+    import characterStore from '@/store/characters.store';
 
 
     const route = useRoute();
@@ -13,29 +14,20 @@
     // const params = route.params.id;
     //desestructurar params:
     const {id} = route.params as {id:string}; //esto es un 'casting' aunque sea un numero lo interpreta como un string para poder tener acceso a los valores de los strings 
-
+    const characterId: number = +id -1
     //vease la funcion de CharacterList para una funcion sin parametro de entrada
     //todos los query parametros serán strings, ya lo declaramos anteriormente si no deberiamos escribir string | string []
     //async siempre devuelve promesas
-    const getCharacter = async ( characterId: string):Promise<Result> => {
-       
-        const {data}  = await rickAndMorty.get<Result>(`/character/${characterId}`);
-        
-        return data;
-    }
+ 
 
     //aqui pondremos la caché, se trata de una caché compuesta
     //al usar funciones con parametros no podemos usar solo el nombre cuando tiene un parametro dentro porque 
     // () => getCharacter () esta bien 
     // () => getCharacter (id)
-    const { data: character } = useQuery(
-        ['character', id], 
-        () => getCharacter(id),
+ 
 
-    );
-
-
-
+    const character = characterStore.characters.list[characterId]
+    console.log(character);
 
 </script>
 
